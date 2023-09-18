@@ -115,7 +115,8 @@ public class Controller {
 			anbefaletDosis = patient.getVaegt() * laegemiddel.getEnhedPrKgPrDoegnLet();
 		} else if (patient.getVaegt() < 120) {
 			anbefaletDosis = patient.getVaegt() * laegemiddel.getEnhedPrKgPrDoegnNormal();
-		} else anbefaletDosis = patient.getVaegt() * laegemiddel.getEnhedPrKgPrDoegnTung();
+		} else
+			anbefaletDosis = patient.getVaegt() * laegemiddel.getEnhedPrKgPrDoegnTung();
 
 		return anbefaletDosis;
 	}
