@@ -8,8 +8,6 @@ public class Patient {
     private double vaegt;
     private ArrayList<Ordination> ordinationer = new ArrayList<>();
 
-    // TODO: Link til Ordination
-
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
         this.navn = navn;
@@ -45,5 +43,9 @@ public class Patient {
         if (!ordinationer.contains(ordination)) {
             ordinationer.add(ordination);
         }
+    }
+
+    public ArrayList<Ordination> getOrdinationer() {
+        return ordinationer;
     }
 }
