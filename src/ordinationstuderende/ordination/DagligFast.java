@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class DagligFast extends Ordination{
-    public DagligFast(LocalDate startDen, LocalDate slutDen) {
-        super(startDen, slutDen);
+    public DagligFast(LocalDate startDen, LocalDate slutDen, Patient patient) {
+        super(startDen, slutDen, patient);
     }
 
     private final Dosis[] doser = new Dosis[4];

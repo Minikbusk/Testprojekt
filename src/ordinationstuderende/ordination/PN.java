@@ -1,13 +1,18 @@
 package ordinationstuderende.ordination;
 
+import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public class PN  extends Ordination {
 
     private double antalEnheder;
+    private final ArrayList<LocalDate> datoer = new ArrayList<>();
 
-    public PN(LocalDate startDen, LocalDate slutDen) {
-        super(startDen, slutDen);
+    public PN(LocalDate startDen, LocalDate slutDen, Patient patient, double antalEnheder) {
+        super(startDen, slutDen, patient);
+        this.antalEnheder = antalEnheder;
     }
 
     /**
@@ -18,13 +23,18 @@ public class PN  extends Ordination {
      * @return
      */
     public boolean givDosis(LocalDate givesDen) {
-        // TODO
-        return false;   
+        boolean gyldig = false;
+        if (givesDen.isEqual(getStartDen()) || givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen()) || givesDen.isEqual(getSlutDen())) {
+            datoer.add(givesDen);
+            gyldig = true;
+        }
+
+        return gyldig;
     }
 
     public double doegnDosis() {
-        // TODO
-        return 0.0;
+        double doegnDosis = samletDosis() / (ChronoUnit.DAYS.between(datoer.get(0), datoer.get(datoer.size())));
+        return doegnDosis;
     }
 
     @Override
@@ -34,8 +44,8 @@ public class PN  extends Ordination {
 
 
     public double samletDosis() {
-        // TODO
-        return 0.0;
+        double samletDosis = getAntalGangeGivet() * antalEnheder;
+        return samletDosis;
     }
 
     /**
@@ -43,8 +53,7 @@ public class PN  extends Ordination {
      * @return
      */
     public int getAntalGangeGivet() {
-        // TODO
-        return-1;
+        return datoer.size();
     }
 
     public double getAntalEnheder() {
