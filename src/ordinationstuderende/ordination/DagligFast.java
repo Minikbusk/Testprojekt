@@ -13,6 +13,7 @@ public class DagligFast extends Ordination{
     public Dosis[] getDoser() {
         return doser;
     }
+
     public Dosis opretDosis(LocalTime tid, double antal) {
         Dosis dosis = new Dosis(tid, antal);
         if (tid == LocalTime.of(6,0)) {
@@ -36,9 +37,9 @@ public class DagligFast extends Ordination{
 
     @Override
     public double doegnDosis() {
-        int antal = 0;
+        double antal = 0;
         for (Dosis d : doser) {
-            antal += (int) d.getAntal();
+            antal += d.getAntal();
         }
         return antal;
     }

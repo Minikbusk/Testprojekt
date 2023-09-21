@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
+import javafx.application.Application;
 import ordinationstuderende.ordination.Laegemiddel;
 
 public class StatistikPane extends GridPane {
