@@ -34,6 +34,10 @@ public abstract class Ordination {
         }
     }
 
+    public Patient getPatient() {
+        return patient;
+    }
+
     /**
      * Antal hele dage mellem startdato og slutdato. Begge dage inklusive.
      * @return antal dage ordinationen gælder for
@@ -65,3 +69,4 @@ public abstract class Ordination {
      */
     public abstract String getType();
 }
+
