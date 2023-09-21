@@ -52,7 +52,7 @@ public class Controller {
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
-		if (startDen.isBefore(slutDen) && laegemiddel != null && patient != null && morgenAntal >= 0 && middagAntal >= 0 && aftenAntal >= 0 && natAntal >= 0) {
+		if (startDen.isBefore(slutDen) && laegemiddel != null && patient != null && morgenAntal >= 0 && middagAntal >= 0 && aftenAntal >= 0 && natAntal >= 0 && morgenAntal+middagAntal+aftenAntal+natAntal != 0) {
 			DagligFast dagligFast = new DagligFast(startDen,slutDen,patient);
 			dagligFast.setLaegemiddel(laegemiddel);
 			dagligFast.opretDosis(LocalTime.of(6,0),morgenAntal);
@@ -83,7 +83,8 @@ public class Controller {
 			}
 
 			return dagligSkaev;
-		} else throw new IllegalArgumentException("Fejl i input!");
+		}
+		else throw new IllegalArgumentException("Fejl i input!");
 	}
 
 	/**
