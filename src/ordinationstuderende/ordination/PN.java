@@ -8,6 +8,11 @@ import java.util.ArrayList;
 public class PN  extends Ordination {
 
     private double antalEnheder;
+
+    public ArrayList<LocalDate> getDatoer() {
+        return datoer;
+    }
+
     private final ArrayList<LocalDate> datoer = new ArrayList<>();
 
     public PN(LocalDate startDen, LocalDate slutDen, Patient patient, double antalEnheder) {
